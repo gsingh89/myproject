@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  description: 
+  price: 9.99
+  stock_quantity: 1
+  released: 2017-11-05
+
+two:
+  name: 
+  description: 
+  price: 9.99
+  stock_quantity: 1
+  released: 2017-11-05
