@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'products/index'
 
-  get '/homepage', to:'homepage#index', as:'homepage'
+  get '', to:'homepage#index', as:'homepage'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
