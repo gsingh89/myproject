@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'gamepage/show'
+  get '/gamepage', to: 'gamepage#show', as: 'gamepage'
 
   get 'products/index'
 

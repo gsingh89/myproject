@@ -1,2 +1,14 @@
-<h1>Gamepage#show</h1>
-<p>Find me in app/views/gamepage/show.html.erb</p>
+<h1>Games</h1>
+
+<% @products.each do |product| %>
+<div class="products">
+	<h2><%= product.name %></h2>
+	<p><%= image_tag product.image %></p>
+	<p><%= product.description %></p>
+	<p>Price: <%= product.price %></p>
+	<p>Stock: <%= product.stock_quantity %></p>
+	<p>Date released: <%= product.released %></p>
+
+	
+	</div>
+<% end %>
