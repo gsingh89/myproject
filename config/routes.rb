@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'gamepage/show'
+
   get 'products/index'
 
   get '', to:'homepage#index', as:'homepage'
