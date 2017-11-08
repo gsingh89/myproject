@@ -1,5 +1,6 @@
 ActiveAdmin.register Feedback do
 
 
-permit_params :name, :description, :price, :stock_quantity, :released
+permit_params :title, :description, :price, :stock_quantity, :released, :feedback_id
+
 end
