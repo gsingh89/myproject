@@ -10,5 +10,7 @@ class GamepageController < ApplicationController
   def search_results
   	searchkeyword = params[:search_keywords]
   	@found_products = Product.where("name LIKE  '%#{searchkeyword}%'")
+  	@cat = Category.all;
   end
 end
+

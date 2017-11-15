@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
 
-permit_params :category
+permit_params :name
 
 end

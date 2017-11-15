@@ -9,6 +9,12 @@
 	<p><%= image_tag product.image %></p>
 	<p><%= product.description %></p>
 	<p>Price: $<%= product.price %></p>
+
+	<% @cat.each do |cat|%>
+		<% if(cat.id == product.category_id)%>
+		<p>Category: <%= cat.name %></p>
+		<% end %>
+	<% end %>
 	<p>Stock: <%= product.stock_quantity %></p>
 	<p>Date released: <%= product.released %></p>
 	<% end %>
