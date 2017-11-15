@@ -2,18 +2,33 @@
 <html>
 <head>
 <title>Electronic Games</title>
+<h1>Electronic Games Gallery</h1>
 
-<%= image_tag("homepage/ps4.jpg") %>
-<%= link_to 'Games Page',gamepage_path %>
+ <%= link_to 'HomePage',homepage_path %>
+ <%= link_to 'Games Page',gamepage_path %>
+ <%= link_to 'Search', search_path %>
 
-<h1>Description</h1>
+
 <body>
-<div id="article">
-	<p>EG Games(also known as Electronic Games Gallery) is a computer and video games retailer. It specializes in selling video games and controllers for different consoles like PS4, Xbox One, Nintendo and many more. It has its headquarters in Canada. It was opened in 2016 and operated worldwide. It works for winnipegers only. </p>
-	<aside>
-	  <h2>Contact Information</h2>
+
+<div >
+	<%= image_tag("homepage/ps4.jpg") %>
+	<%= image_tag("homepage/Xbox.jpg") %>
+	<%= image_tag("homepage/nintendo.jpg") %>
+</div> 	
+
+<div id="article" >
+	<p><h2>Description</h2>
+	EG Games(also known as Electronic Games Gallery) is a computer and video games retailer. It specializes in selling video games and controllers for different consoles like PS4, Xbox One, Nintendo and many more. It has its headquarters in Canada. It was opened in 2016 and operated worldwide. It works for winnipegers only. </p>
+	
+</div>
+<p>
+	Electronic Games Gallery is committed to delivering innovation to consumers anywhere, anytime and any way they want it. 
+</p>
+<aside>
+	  <h3>Contact Information</h3>
 	  <p>Location - Winnipeg,Canada
 	  <br/> Contact me - electronicgames@gmail.com</p>
     </aside>
-</div>
+
 </body>

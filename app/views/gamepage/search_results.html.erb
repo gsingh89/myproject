@@ -1,0 +1,14 @@
+<h1>Results for '<%= params[:search_keywords] %>'</h1>
+<% if @found_products.empty? %>
+<p>No results found.</p>
+<% end %>
+
+<% @found_products.each do |product| %>
+<div class="products">
+	<h2><%= product.name %></h2>
+	<p><%= image_tag product.image %></p>
+	<p><%= product.description %></p>
+	<p>Price: $<%= product.price %></p>
+	<p>Stock: <%= product.stock_quantity %></p>
+	<p>Date released: <%= product.released %></p>
+	<% end %>
