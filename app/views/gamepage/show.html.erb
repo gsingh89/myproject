@@ -3,6 +3,11 @@
  <%= link_to 'HomePage',homepage_path %>
  <%= link_to 'Games Page',gamepage_path %>
  <%= link_to 'Search', search_path %>
+ <br>
+ <br>
+ <%= link_to 'Most Recent', most_recent_path %> 
+  <%= link_to 'On Sale', onsale_path %> 
+ 
 
  <h1>Search Form</h1>
 
@@ -10,11 +15,19 @@
   <%= text_field_tag :search_keywords %>
   <%= submit_tag "Search" %>
 <% end %>
+	
+<div class="category">
+	<% Category.all.each do |category| %>
+	<li> <%= link_to category.name, Category_path(category) %></li>
+		
+	<% end %>
+
+</div>
 
 
 <% @products.each do |product| %>
 <div class="products">
-	<h2><%= product.name %></h2>
+	<h2> <%= link_to product.name, product_path(product)  %></h2>
 	<p><%= image_tag product.image %></p>
 	<!-- <p><%= product.description %></p>
 	<p>Price: $<%= product.price %></p>

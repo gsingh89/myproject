@@ -1,0 +1,29 @@
+ <h1>Games</h1>
+ 
+ <%= link_to 'HomePage',homepage_path %>
+ <%= link_to 'Games Page',gamepage_path %>
+ <%= link_to 'Search', search_path %>
+ 
+
+ <h1>Category Results</h1>
+<div class="category">
+	<% Category.all.each do |category| %>
+	<li> <%= link_to category.name, Category_path(category) %></li>
+		
+	<% end %>
+
+</div>
+
+
+<% @products.each do |product| %>
+<div class="products">
+	<h2> <%= product.name %></h2>
+	<p><%= image_tag product.image %></p>
+	<p><%= product.description %></p>
+	<p>Price: $<%= product.price %></p>
+	<p>Stock: <%= product.stock_quantity %></p>
+	<p>Date released: <%= product.released %></p>
+
+	
+	</div>
+<% end %>

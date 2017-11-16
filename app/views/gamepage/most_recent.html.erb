@@ -1,0 +1,25 @@
+<h1>Games</h1>
+ 
+ <%= link_to 'HomePage',homepage_path %>
+ <%= link_to 'Games Page',gamepage_path %>
+ <%= link_to 'Search', search_path %>
+ <br>
+ <br>
+ <%= link_to 'Most Recent', most_recent_path %> 
+  <%= link_to 'On Sale', onsale_path %>  
+ 
+
+
+
+<% @recent.each do |product| %>
+<div class="products">
+	<h2> <%= link_to product.name, product_path(product)  %></h2>
+	<p><%= image_tag product.image %></p>
+	<p><%= product.description %></p>
+	<p>Price: $<%= product.price %></p>
+	<p>Stock: <%= product.stock_quantity %></p>
+	<p>Date released: <%= product.released %></p>
+
+	
+</div>
+<% end %>

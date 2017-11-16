@@ -12,5 +12,24 @@ class GamepageController < ApplicationController
   	@found_products = Product.where("name LIKE  '%#{searchkeyword}%'")
   	@cat = Category.all;
   end
+
+  def catsearch
+    # @category = Category.find(params[:id])
+  	@products = Product.where(category_id: params[:id])
+  end
+
+  def prod_display
+  	# @products = Product.find(params[:name])
+  	@product = Product.where(id: params[:id])
+  end
+
+  def most_recent
+  	@recent = Product.order(created_at: :desc)
+  end
+
+  def onsale
+  	@sale = Product.where("price < ?", 50)
+  end
+
 end
 
