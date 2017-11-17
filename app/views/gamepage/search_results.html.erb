@@ -1,4 +1,8 @@
+
 <h1>Results for '<%= params[:search_keywords] %>'</h1>
+<%= link_to 'HomePage',homepage_path %>
+ <%= link_to 'Games Page',gamepage_path %>
+ <br>
 <% if @found_products.empty? %>
 <p>No results found.</p>
 <% end %>
