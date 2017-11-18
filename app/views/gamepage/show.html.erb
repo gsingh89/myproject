@@ -2,7 +2,7 @@
  
  <%= link_to 'HomePage',homepage_path %>
  <%= link_to 'Games Page',gamepage_path %>
- <%= link_to 'Search', search_path %>
+ 
  <br>
  <br>
  <%= link_to 'Most Recent', most_recent_path %> 
@@ -13,6 +13,7 @@
 
 <%= form_tag search_results_path, method: 'get' do %>
   <%= text_field_tag :search_keywords %>
+  
   <%= submit_tag "Search" %>
 <% end %>
 	
