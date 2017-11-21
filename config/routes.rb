@@ -16,8 +16,7 @@ Rails.application.routes.draw do
   get 'most_recent', to: 'gamepage#most_recent', as: 'most_recent'
   
   get 'onsale', to: 'gamepage#onsale', as: 'onsale' 
-
-  get 'feedback', to: 'gamepage#feedback', as: 'feedback'
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
