@@ -14,8 +14,8 @@ class GamepageController < ApplicationController
       @found_products = Product.where("name LIKE  '%#{searchkeyword}%'")
 
     else
-  	@found_products = Product.where("name LIKE '%#{searchkeyword}%'").joins(:category).where("category_id LIKE ?", params[:category_id])
-  end
+  	@found_products = Product.where("name LIKE '%#{searchkeyword}%'").where("category_id = ?",params[:category_id])
+      end
   	@cat = Category.all;
   end
 
