@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cartstuff/thecart'
+
   get '/gamepage', to: 'gamepage#show', as: 'gamepage'
 
   get 'products/index'
