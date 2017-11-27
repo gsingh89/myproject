@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get 'most_recent', to: 'gamepage#most_recent', as: 'most_recent'
   
   get 'onsale', to: 'gamepage#onsale', as: 'onsale' 
+
+  post 'cartstuff/:id', to: 'cartstuff#thecart', as: 'cartstuff'
+
+  get 'carstuff', to: 'cartstuff#show', as: 'show'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

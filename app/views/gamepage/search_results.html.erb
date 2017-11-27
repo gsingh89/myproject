@@ -1,7 +1,37 @@
-<%= link_to 'HomePage',homepage_path %>
- <%= link_to 'Games Page',gamepage_path %>
- 
-<h1>Results for '<%= params[:search_keywords] %>'</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <%= render partial: 'common/header' %>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Category Search</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/portfolio-item.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Category Search</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <h1>Results for '<%= params[:search_keywords] %>'</h1>
 <% if @found_products.empty? %>
 <p>No results found.</p>
 <% end %>
@@ -21,3 +51,27 @@
 	<p>Stock: <%= product.stock_quantity %></p>
 	<p>Date released: <%= product.released %></p>
 	<% end %>
+
+
+      </div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; MyProject 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
+
+
+
+
+
+
