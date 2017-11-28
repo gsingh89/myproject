@@ -6,7 +6,7 @@ class GamepageController < ApplicationController
 
   def search
   end
-
+  
   def search_results
   	
   	searchkeyword = params[:search_keywords]

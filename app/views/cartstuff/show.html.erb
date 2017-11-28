@@ -1,1 +1,11 @@
  <%= render partial: 'common/header' %>
+
+ <% @products.each do |product| %>
+<div class="products">
+	<h2> <%= product.name %></h2>
+	<p>Price: $<%= product.price %></p>
+	<p>Stock: <%= product.stock_quantity %></p>
+	<p>Date released: <%= product.released %></p>
+ 	<%= link_to "Remove", remove_path(id: product.id)  %>
+
+	<% end %>
