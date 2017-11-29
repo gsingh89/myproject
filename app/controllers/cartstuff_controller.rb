@@ -3,26 +3,47 @@ class CartstuffController < ApplicationController
 
   def thecart
   	@id = params[:id].to_i
+  	@quantity = params[:quantity].to_i
 
-  	session[:cart] << @id unless session[:cart].include?(@id)
-  	redirect_to :action => :show
+
+  	# session[:cart] << @id unless session[:cart].include?(@id)
+  	if session[:bagg].any? {|a| a['id'] == @id}
+	   	session[:bagg].each do |variable|
+	  		if variable['id'] == @id
+	  			variable['quantity'] = @quantity	
+	  		end
+	  	end
+	else
+	  		   session[:bagg] << {:id => @id, :quantity => @quantity}
+	  		
+	  	
+   end
+
+	  		   redirect_to :action => :show
+  	
   end
 
   def show
-  	@products = Product.find(session[:cart])	
+  	@products_all  = Product.all
+  	@products = session[:bagg]	
   end
 
   def initialize_session
-  	session[:cart] ||= []
+  	session[:bagg] ||= []
   end
 
   def remove
   	@id = params[:id].to_i
-  	session[:cart].each do | remove_item|
-  	if remove_item == @id
-  		session[:cart].delete(remove_item)
+
+  	if session[:bagg].any? {|val| val['id'] == @id}
+
+  	session[:bagg].each do |remove_item|
+
+  	if remove_item['id'] == @id
+  		session[:bagg].delete(remove_item)
   	end
 
+	end
   end
   redirect_to :action => :show
 

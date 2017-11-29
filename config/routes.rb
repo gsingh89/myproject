@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get 'carstuff', to: 'cartstuff#show', as: 'show'
 
-  get 'cartremove/:id/remove', to: 'cartstuff#remove', as: 'remove'
+  post 'cartremove/remove/:id', to: 'cartstuff#remove', as: 'remove'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

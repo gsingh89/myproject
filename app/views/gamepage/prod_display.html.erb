@@ -11,6 +11,12 @@
 	<p>Price: $<%= product.price %></p>
 	<p>Stock: <%= product.stock_quantity %></p>
 	<p>Date released: <%= product.released %></p>
-	<%= button_to 'Add to cart', {:controller => "cartstuff", :action => "thecart", :id => product.id} , :method=>:post  %>
+	
+	<%= form_tag cartstuff_path(id: product.id), method: 'post' do %>
+		<p>Quantity: <%= text_field_tag "quantity" %></p>
+		<%= submit_tag "Add to cart" %>
+		
+	<% end %>
 	</div>
 <% end %>
+
