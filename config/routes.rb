@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+resources :charges, only: [:new, :create]
+
   get 'cartstuff/thecart'
 
   get '/gamepage', to: 'gamepage#show', as: 'gamepage'
@@ -24,6 +26,10 @@ Rails.application.routes.draw do
   get 'carstuff', to: 'cartstuff#show', as: 'show'
 
   post 'cartremove/remove/:id', to: 'cartstuff#remove', as: 'remove'
+
+
+
+
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
