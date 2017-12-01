@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-has_many :customers
+
 belongs_to :category
 
 mount_uploader :image, ImageUploader

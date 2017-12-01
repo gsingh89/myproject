@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :models
+  devise_for :customers
 resources :charges, only: [:new, :create]
+
+  devise_for :customers, skip: :all
 
   get 'cartstuff/thecart'
 
