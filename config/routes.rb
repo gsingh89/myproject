@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   devise_for :customers
 resources :charges, only: [:new, :create]
 
@@ -27,6 +27,7 @@ resources :charges, only: [:new, :create]
   post 'cartstuff/:id', to: 'cartstuff#thecart', as: 'cartstuff'
 
   get 'carstuff', to: 'cartstuff#show', as: 'show'
+  get 'checkout', to: 'cartstuff#checkout', as: 'checkout'
 
   post 'cartremove/remove/:id', to: 'cartstuff#remove', as: 'remove'
 

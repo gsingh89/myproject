@@ -26,6 +26,8 @@ class CartstuffController < ApplicationController
   def show
   	@products_all  = Product.all
   	@products = session[:bagg]	
+ 
+    
   end
 
   def initialize_session
@@ -46,6 +48,32 @@ class CartstuffController < ApplicationController
 	end
   end
   redirect_to :action => :show
+end
 
+def checkout
+  if customer_signed_in?
+
+    @curent_cust = current_customer
+    
+    @custdetails = Customer.where('id LIKE ?', @curent_cust.id).first
+
+    @provincedetails = Province.where('id LIKE ?', @custdetails.province_id).first
+
+    @mygst = @provincedetails.gst 
+    @mypst = @provincedetails.pst
+
+    @total_final = session[:total]
+    
+    @products = session[:bagg]  
+    @products_all  = Product.all
+
+    @calc_gst = @mygst * @total_final.to_f
+    @calc_pst = @mypst  * @total_final.to_f
+    @all_total = @total_final.to_f + @calc_pst   + @calc_gst  
+
+
+  else
+    redirect_to customer_session_path
+  end
 end
 end	

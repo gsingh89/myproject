@@ -1,6 +1,4 @@
- <% @total = 0 %>
- <% @final_total = 0 %>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -10,14 +8,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cart</title>
+    <title>Checkout</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/portfolio-item.css" rel="stylesheet">
-     <%= render partial: 'common/header' %>
+
   </head>
 
   <body>
@@ -25,57 +23,52 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Cart</a>
+        <a class="navbar-brand" href="#">Electronic Games Gallery</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" >
+                <%= link_to 'HomePage',homepage_path %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"> 
+              <%= link_to 'Games Page',gamepage_path %>
+              </a>
+            </li>
+            
+        </div>
       </div>
     </nav>
 
     <!-- Page Content -->
     <div class="container">
-
-      <!-- Portfolio Item Heading -->
-      <h1 class="my-4">Items
-        
-      </h1>
-
-      <!-- Portfolio Item Row -->
-      <div class="row">
-
-
         <div class="col-md-4">
-       
-          <% @products.each do |pro| %>
+          <h3 class="my-3">Cart Checkout</h3>
+           <% @products.each do |pro| %>
  	 <% @products_all.each do |product| %>
 	 <% if pro['id'] == product.id %>
  	 	<div class="products">
  		<h2> <%= product.name %></h2>
  		<p>Quantity: <%= pro['quantity'] %></p>
- 		<p>Price: $<%= product.price %></p>
- 		<p>Date released: <%= product.released %></p>
-    <% @subtotal = pro['quantity'] * product.price %>
- 		<p> Subtotal: $<%= @subtotal %></p>
-  	<% @total += @subtotal %>
-    <% session[:total] = @total %>
-  		<%= form_tag remove_path(id: product.id), method: 'post' do %>
-		<%= submit_tag "Remove" %>
+ 		<hr>
+ 		<% end %>
+ 		<% end%>
+ 		<%end%>
+          <p>PST: $<%= @calc_pst%></p>
+          <p>GST: $<%= @calc_gst%></p>
+          <p>Grand Total: $<%= @all_total%></p> 
+          <% session[:grand_total] = @all_total %>  
+          <%= form_tag new_charge_path , method: 'get' do %>
+		<%= submit_tag "Proceed with payment!" %>
  	 <% end %>
-    
-    
-</div>
-<% end %>
 
- 	<% end %>
-
- 
- <% end %>
-  <p> total: $<%= @total %></p>
-  <%= form_tag checkout_path, method: 'get' do %>
-   <%= submit_tag "Checkout" %>
-   <% end %>  
       </div>
+      <!-- /.row -->
+
       
     </div>
     <!-- /.container -->
