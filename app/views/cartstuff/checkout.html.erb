@@ -61,7 +61,8 @@
           <p>PST: $<%= @calc_pst%></p>
           <p>GST: $<%= @calc_gst%></p>
           <p>Grand Total: $<%= @all_total%></p> 
-          <% session[:grand_total] = @all_total %>  
+          <% session[:grand_total] = @all_total %> 
+          
           <%= form_tag new_charge_path , method: 'get' do %>
 		<%= submit_tag "Proceed with payment!" %>
  	 <% end %>
